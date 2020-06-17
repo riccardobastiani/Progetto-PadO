@@ -82,7 +82,8 @@ la differenza è che il normale sottostante è invece il prezzo di un futures/fo
 		double OptionForCurr::getRF() const { return r_f; } dove **r_f è il foreign interest rate**
 
 
-** Esempio di schermata principale
+** Esempio di schermata principale**
+
 ![](https://github.com/riccardobastiani/Progetto-PadO/blob/master/form1%20nuovo.PNG)
 
 **Apparato grafico e GUI**
