@@ -79,7 +79,7 @@ la differenza è che il normale sottostante è invece il prezzo di un futures/fo
 
 3) European option with foreign currency
 
-	`double OptionForCurr::getRF() const { return r_f; } dove **r_f è il foreign interest rate**
+		double OptionForCurr::getRF() const { return r_f; } dove **r_f è il foreign interest rate**
 
 ![Esempio di schermata principale](https://github.com/riccardobastiani/Progetto-PadO/blob/master/form1%20nuovo.PNG)
 
