@@ -27,11 +27,13 @@ Abbiamo tre possibili casi d'uso che un utente può avere:
 
 ![diagramma UML](https://github.com/riccardobastiani/Progetto-PadO/blob/master/Image.png)
 
-![Option Base](https://github.com/riccardobastiani/Progetto-PadO/blob/master/OptionBase.png
+![Option Base](https://github.com/riccardobastiani/Progetto-PadO/blob/master/OptionBase.png)
 
 ![Option Div](https://github.com/riccardobastiani/Progetto-PadO/blob/master/OptionDiv.png)
 
+# Esempio di GUI
 
+[
 
 
 
