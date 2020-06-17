@@ -1,7 +1,11 @@
 # Progetto-PadO
 
+# **Descrizione**
+
 Il progetto in questione parte dalla celebre formula di Black-Scholes per il calcolo del prezzo di non arbitraggio di un'opzione
 call (put) di tipo europeo.
+
+**Obiettivi*
 
 L'obiettivo del progetto è di sfruttare la formula per il calcolo delle opzioni call e put delle quattro diverse tipologie ovvero:
 
@@ -11,12 +15,13 @@ L'obiettivo del progetto è di sfruttare la formula per il calcolo delle opzioni
 4) European option with foreign currency
 
 
+**Use Cases**
+
 Abbiamo tre possibili casi d'uso che un utente può avere:
 
 - Calcolo delle quattro tipologie di prezzi di call e put.
 - Salvataggio dei dati su un file .csv (comma separated value).
-- Lettura dei risulati e visualizzazione dell'andamento attraverso un grafico per le base option. 
-
+- Lettura dei risultati e visualizzazione dell'andamento attraverso un grafico per le base option. 
 
 
 
