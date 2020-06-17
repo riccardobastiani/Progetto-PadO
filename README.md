@@ -5,6 +5,38 @@
 Il progetto in questione parte dalla celebre formula di Black-Scholes per il calcolo del prezzo di non arbitraggio di un'opzione
 call (put) di tipo europeo.
 
+# Cosa significa la formula di Black-Scholes ?
+
+Un'opzione è un "security derivative", ovvero è un titolo (security) che ottiene il proprio valore o prezzo da un altro asset finanziario oppure da un indice detto sottostante (underlying).
+
+In generale abbiamo che con "s" si denota il valore o il prezzo di questo sottostante (spot underlying price). Dobbiamo allora tenere traccia del prezzo del tempo nel queale questo prezzo viene osservato.
+Una opzione call ( o put) garantisce al proprietario, il diritto ma non l'obbligo di cmprare (o vendere) alcuni sottostanti ad un dato prezzo k, chiamato prezzo di esercizio (Strike/Exercise price) a una determinata data di scadenza (t), oppure prima. 
+
+Se l'opzione è di tipo europeo, può essere esercitata solamente alla data di scadenza (time to maturity) dell'opzione.
+
+In caso contrario, viene chiamata di tipo americano e può esserce esercitata in ogni momento fino alla data di scadenza inclusa. Se viene esercitata al tempo t allora l'opzione prevede profitto. 
+
+La formula di Black-Scholes fornisce una soluzione analitica per le opzioni call e put di tipo europeo. E in particolare senza payout, per quando concerne la formula orignale. 
+Inoltre i due matematici hanno dimostrato che le informazioni necessarie sono
+1) il tasso di interesse r
+2) la variabilità del sottostante, misurata attraverso la deviazione standard sigma del logaritmo dei cambiamenti del prezzo 
+3) data di scadenza in anni. 
+
+
+La formula risulta essere per la call:
+
+double d1 = (log(s / k) + r * t) / (sigma*sqrt(t)) + 0.5*sigma*sqrt(t);
+	double d2 = d1 - (sigma*sqrt(t));
+	c = s * N(d1) - k * exp(-r * t)*N(d2);
+
+per la put:
+
+double d1 = (log(s / k) + r * t) / (sigma*sqrt(t)) + 0.5*sigma*sqrt(t);
+	double d2 = d1 - (sigma*sqrt(t));
+	p = k * exp(-r * t)*N(-d2) - s * N(-d1)
+
+
+
 # Obiettivo del progetto date le specifiche
 
 L'obiettivo del progetto è di sfruttare la struttura ad oggetti del c++ per il calcolo delle opzioni call e put. 
@@ -18,6 +50,8 @@ Il primo miglioramento è stato quello di utilizzare la formula di Black-Scholes
 1) European option with continous payout from an underlying
 2) European option on futures 
 3) European option with foreign currency
+
+![Esempio di schermata principale](https://github.com/riccardobastiani/Progetto-PadO/blob/master/form1%20nuovo.PNG)
 
 **Apparato grafico e GUI**
 
@@ -47,7 +81,6 @@ Abbiamo tre possibili casi d'uso che un utente può avere:
 
 # Esempi di GUI
 
-![Esempio di schermata principale](https://github.com/riccardobastiani/Progetto-PadO/blob/master/form1%20nuovo.PNG)
 
 ![Esempio di schermata di calcolo](https://github.com/riccardobastiani/Progetto-PadO/blob/master/form2.png)
 
