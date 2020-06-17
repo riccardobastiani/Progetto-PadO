@@ -5,15 +5,29 @@
 Il progetto in questione parte dalla celebre formula di Black-Scholes per il calcolo del prezzo di non arbitraggio di un'opzione
 call (put) di tipo europeo.
 
-# Obiettivi
+# Obiettivo del progetto date le specifiche
 
-L'obiettivo del progetto è di sfruttare la formula per il calcolo delle opzioni call e put delle quattro diverse tipologie ovvero:
+L'obiettivo del progetto è di sfruttare la struttura ad oggetti del c++ per il calcolo delle opzioni call e put. 
 
-1) price of call and put of a European base option
-2) European option with continous payout from an underlying
-3) European option on futures 
-4) European option with foreign currency
+# Miglioramenti
 
+**Calcolo di diverse opzioni**
+
+Il primo miglioramento è stato quello di utilizzare la formula di Black-Scholes, non solamente per il calcolo delle European Base Option ma anche di altre comuni tipologie.
+
+1) European option with continous payout from an underlying
+2) European option on futures 
+3) European option with foreign currency
+
+**Apparato grafico e GUI**
+
+La parte grafica, creata utilizzando le Windows Form ha portato un miglioramento per l'esperienza dell'utente rispetto a quello che poteva essere l'utilizzo da terminale. 
+
+**Salvataggio dei dati**
+
+Il salvataggio dei dati in un file di tipo .csv per quanto riguarda i risultati ottenuti
+
+**Grafico**
 
 # Use Cases
 
