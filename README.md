@@ -33,9 +33,9 @@ Abbiamo tre possibili casi d'uso che un utente può avere:
 
 # Esempi di GUI
 
-[Esempio di schermata principale](https://github.com/riccardobastiani/Progetto-PadO/blob/master/form1%20nuovo.PNG)
+![Esempio di schermata principale](https://github.com/riccardobastiani/Progetto-PadO/blob/master/form1%20nuovo.PNG)
 
-[Esempio di schermata di calcolo](https://github.com/riccardobastiani/Progetto-PadO/blob/master/form2.png)
+![Esempio di schermata di calcolo](https://github.com/riccardobastiani/Progetto-PadO/blob/master/form2.png)
 
 # Esempio di grafico
 
