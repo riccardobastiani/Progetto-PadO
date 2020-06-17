@@ -1,5 +1,11 @@
 # Progetto-PadO
 
+TODO
+[] mettere codice per le altre 3 formule
+[] codice per il salvataggio e i csv
+[] codice per il grafico
+
+
 # **Descrizione**
 
 Il progetto in questione parte dalla celebre formula di Black-Scholes per il calcolo del prezzo di non arbitraggio di un'opzione
