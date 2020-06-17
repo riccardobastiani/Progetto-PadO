@@ -55,12 +55,13 @@ L'obiettivo del progetto è di sfruttare la struttura ad oggetti del c++ per il 
 Il primo miglioramento è stato quello di utilizzare la formula di Black-Scholes, non solamente per il calcolo delle European Base Option ma anche di altre comuni tipologie.
 
 1) European option with continous payout from an underlying
-double OptionContPay::getQ() const { return q; } **//Return Yield on Underlying**
-	void OptionContPay::setCall() {
-	double d1 = (log(getS() / getK()) + (getR() - getQ() + 0.5*pow(getSigma(), 2))*getTime()) / (getSigma()*sqrt(getTime()));
-	double d2 = d1 - (getSigma()*sqrt(getTime()));
-	c = getS() * exp(-getQ()*getTime())* N(d1) - getK() * exp(-getR()*getTime()) * N(d2);
-	
+
+	double OptionContPay::getQ() const { return q; } **//Return Yield on Underlying**
+		void OptionContPay::setCall() {
+		double d1 = (log(getS() / getK()) + (getR() - getQ() + 0.5*pow(getSigma(), 2))*getTime()) / 	(getSigma()*sqrt(getTime()));
+		double d2 = d1 - (getSigma()*sqrt(getTime()));
+		c = getS() * exp(-getQ()*getTime())* N(d1) - getK() * exp(-getR()*getTime()) * N(d2);
+		
 	la differenza rispetto alla formula principale è data dal return del rendimento del sottostante (yield on underlying) 
 	
 2) European option on futures 
