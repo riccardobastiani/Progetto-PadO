@@ -10,7 +10,7 @@ call (put) di tipo europeo.
 Un'opzione è un "security derivative", ovvero è un titolo (security) che ottiene il proprio valore o prezzo da un altro asset finanziario oppure da un indice detto sottostante (underlying).
 
 In generale abbiamo che con "s" si denota il valore o il prezzo di questo sottostante (spot underlying price). Dobbiamo allora tenere traccia del prezzo del tempo nel queale questo prezzo viene osservato.
-Una opzione call ( o put) garantisce al proprietario, il diritto ma non l'obbligo di cmprare (o vendere) alcuni sottostanti ad un dato prezzo k, chiamato prezzo di esercizio (Strike/Exercise price) a una determinata data di scadenza (t), oppure prima. 
+Una opzione call ( o put) garantisce al proprietario, il diritto ma non l'obbligo di comprare (o vendere) alcuni sottostanti ad un dato prezzo k, chiamato prezzo di esercizio (Strike/Exercise price) a una determinata data di scadenza (t), oppure prima. 
 
 Se l'opzione è di tipo europeo, può essere esercitata solamente alla data di scadenza (time to maturity) dell'opzione.
 
@@ -59,7 +59,7 @@ La parte grafica, creata utilizzando le Windows Form ha portato un miglioramento
 
 **Salvataggio dei dati**
 
-Il salvataggio dei dati in un file di tipo .csv per quanto riguarda i risultati ottenuti
+Il salvataggio dei dati in un file di tipo .csv per quanto riguarda i risultati ottenuti è risultato essere una miglioria efficace. 
 
 **Grafico**
 
