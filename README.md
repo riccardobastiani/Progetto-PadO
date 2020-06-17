@@ -54,8 +54,27 @@ L'obiettivo del progetto è di sfruttare la struttura ad oggetti del c++ per il 
 Il primo miglioramento è stato quello di utilizzare la formula di Black-Scholes, non solamente per il calcolo delle European Base Option ma anche di altre comuni tipologie.
 
 1) European option with continous payout from an underlying
+double OptionContPay::getQ() const { return q; } **//Return Yield on Underlying**
+	void OptionContPay::setCall() {
+	double d1 = (log(getS() / getK()) + (getR() - getQ() + 0.5*pow(getSigma(), 2))*getTime()) / (getSigma()*sqrt(getTime()));
+	double d2 = d1 - (getSigma()*sqrt(getTime()));
+	c = getS() * exp(-getQ()*getTime())* N(d1) - getK() * exp(-getR()*getTime()) * N(d2);
+	
+	la differenza rispetto alla formula principale è data dal return del rendimento del sottostante (yield on underlying) 
+	
 2) European option on futures 
+	la questione dei futures invece si deve alla formula di Black che deriva dalla formula di Black-Scholes
+	
+	void OptionFutures::setCall() { //Set Call Option Price
+	double d1 = (log(getS() / getK()) + 0.5 * pow(getSigma(), 2) * getTime()) / (getSigma() * sqrt(getTime()));
+	double d2 = d1 - getSigma() * sqrt(getTime());
+	c = exp(-getR()*getTime())*(getS() * N(d1) - getK() * N(d2));
+	
+la differenza è che il normale sottostante è invece il prezzo di un futures/forward. (Un forward è un future su un mercato non regolamentato) 
+
+
 3) European option with foreign currency
+	double OptionForCurr::getRF() const { return r_f; } dove **r_f è il foreign interest rate**
 
 ![Esempio di schermata principale](https://github.com/riccardobastiani/Progetto-PadO/blob/master/form1%20nuovo.PNG)
 
