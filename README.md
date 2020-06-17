@@ -31,11 +31,15 @@ Abbiamo tre possibili casi d'uso che un utente può avere:
 
 ![Option Div](https://github.com/riccardobastiani/Progetto-PadO/blob/master/OptionDiv.png)
 
-# Esempio di GUI
+# Esempi di GUI
 
-[
+[Esempio di schermata principale](https://github.com/riccardobastiani/Progetto-PadO/blob/master/form1%20nuovo.PNG)
 
+[Esempio di schermata di calcolo](https://github.com/riccardobastiani/Progetto-PadO/blob/master/form2.png)
 
+# Esempio di grafico
+
+![](https://github.com/riccardobastiani/Progetto-PadO/blob/master/Graph1.png)
 
 
 
