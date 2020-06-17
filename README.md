@@ -31,7 +31,7 @@ Inoltre i due matematici hanno dimostrato che le informazioni necessarie sono
 
 La formula risulta essere per la call:
 
-`double d1 = (log(s / k) + r * t) / (sigma*sqrt(t)) + 0.5*sigma*sqrt(t);`
+	`double d1 = (log(s / k) + r * t) / (sigma*sqrt(t)) + 0.5*sigma*sqrt(t);`
 
 	`double d2 = d1 - (sigma*sqrt(t));`
 	
