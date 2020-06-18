@@ -14,8 +14,9 @@ call (put) di tipo europeo.
 
 Un'opzione è un "security derivative", ovvero è un titolo (security) che ottiene (derivative) il proprio valore o prezzo da un altro asset finanziario oppure da un indice detto sottostante (underlying).
 
-In generale abbiamo che con "s" si denota il valore o il prezzo di questo sottostante (spot underlying price). Dobbiamo allora tenere traccia del prezzo del tempo nel queale questo prezzo viene osservato.
-Una opzione call ( o put) garantisce al proprietario il diritto, ma non l'obbligo, di comprare (o vendere) alcuni sottostanti ad un dato prezzo k, chiamato prezzo di esercizio (Strike/Exercise price) a una determinata data di scadenza (t), oppure prima. 
+
+Con "s" si denota il valore o il prezzo di questo sottostante (spot underlying price). Inoltre tenere traccia del prezzo del tempo nel queale questo prezzo viene osservato.
+Una opzione call (o put) garantisce al proprietario il diritto, ma non l'obbligo, di comprare (o vendere) alcuni sottostanti ad un dato prezzo k, chiamato prezzo di esercizio (Strike/Exercise price) a una determinata data di scadenza (t), oppure prima. 
 
 Se l'opzione è di tipo europeo, può essere esercitata solamente alla data di scadenza (time to maturity) dell'opzione.
 
@@ -23,7 +24,7 @@ In caso contrario, viene chiamata di tipo americano e può esserce esercitata in
 
 La formula di Black-Scholes fornisce una soluzione analitica per le opzioni call e put di tipo europeo. E in particolare senza payout, per quando concerne la formula orignale. 
 
-Inoltre i due matematici hanno dimostrato che le informazioni necessarie sono
+Inoltre i due economia hanno dimostrato che le informazioni necessarie sono
 1) il tasso di interesse r
 2) la variabilità del sottostante, misurata attraverso la deviazione standard sigma del logaritmo dei cambiamenti del prezzo 
 3) data di scadenza in anni. 
@@ -93,8 +94,28 @@ La parte grafica, creata utilizzando le Windows Form ha portato un miglioramento
 **Salvataggio dei dati**
 
 Il salvataggio dei dati in un file di tipo .csv per quanto riguarda i risultati ottenuti è risultato essere una miglioria efficace. 
+Qui di seguito un esempio di codice nel calcolo delle call(o put) europee
+
+	private: System::Void save_data2_Click(System::Object^  sender, System::EventArgs^  e) {
+		SaveFileDialog ^saveFileDialog1 = gcnew SaveFileDialog();
+		saveFileDialog1->Filter = "CSV file(*.csv)|*.csv";
+		saveFileDialog1->Title = "Save a CSV File";
+		saveFileDialog1->ShowDialog();
+		StreamWriter^ outfile = gcnew StreamWriter(saveFileDialog1->FileName, std::ios::app);
+		String ^s = s_textbox2->Text;
+		String ^k = k_textbox2->Text;
+		String ^r = r_textbox2->Text;
+		String ^sigma = sigma_textbox2->Text;
+		String ^t = t_textbox2->Text;
+		String ^call = call_textbox2->Text;
+		String ^put = put_textbox2->Text;
+		String ^etichette = "Spot Price; Strike Price ; Interest Rate; Sigma; Time; Call Result; Put Result";
+		String ^out = s + ";" + k + ";" + r + ";" + sigma + ";" + t + ";" + call + ";" + put;
 
 **Grafico**
+
+![](https://github.com/riccardobastiani/Progetto-PadO/blob/master/Graph1.png)
+
 
 # Use Cases
 
@@ -117,9 +138,6 @@ Abbiamo tre possibili casi d'uso che un utente può avere:
 
 ![Esempio di schermata di calcolo](https://github.com/riccardobastiani/Progetto-PadO/blob/master/form2.png)
 
-# Esempio di grafico
-
-![](https://github.com/riccardobastiani/Progetto-PadO/blob/master/Graph1.png)
 
 
 
