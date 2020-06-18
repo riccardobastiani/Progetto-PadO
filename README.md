@@ -1,7 +1,6 @@
 # Progetto-PadO
 
 TODO
-[] mettere codice per le altre 3 formule
 [] codice per il salvataggio e i csv
 [] codice per il grafico
 
@@ -13,16 +12,17 @@ call (put) di tipo europeo.
 
 # Cosa significa la formula di Black-Scholes ?
 
-Un'opzione è un "security derivative", ovvero è un titolo (security) che ottiene il proprio valore o prezzo da un altro asset finanziario oppure da un indice detto sottostante (underlying).
+Un'opzione è un "security derivative", ovvero è un titolo (security) che ottiene (derivative) il proprio valore o prezzo da un altro asset finanziario oppure da un indice detto sottostante (underlying).
 
 In generale abbiamo che con "s" si denota il valore o il prezzo di questo sottostante (spot underlying price). Dobbiamo allora tenere traccia del prezzo del tempo nel queale questo prezzo viene osservato.
-Una opzione call ( o put) garantisce al proprietario, il diritto ma non l'obbligo di comprare (o vendere) alcuni sottostanti ad un dato prezzo k, chiamato prezzo di esercizio (Strike/Exercise price) a una determinata data di scadenza (t), oppure prima. 
+Una opzione call ( o put) garantisce al proprietario il diritto, ma non l'obbligo, di comprare (o vendere) alcuni sottostanti ad un dato prezzo k, chiamato prezzo di esercizio (Strike/Exercise price) a una determinata data di scadenza (t), oppure prima. 
 
 Se l'opzione è di tipo europeo, può essere esercitata solamente alla data di scadenza (time to maturity) dell'opzione.
 
 In caso contrario, viene chiamata di tipo americano e può esserce esercitata in ogni momento fino alla data di scadenza inclusa. Se viene esercitata al tempo t allora l'opzione prevede profitto. 
 
 La formula di Black-Scholes fornisce una soluzione analitica per le opzioni call e put di tipo europeo. E in particolare senza payout, per quando concerne la formula orignale. 
+
 Inoltre i due matematici hanno dimostrato che le informazioni necessarie sono
 1) il tasso di interesse r
 2) la variabilità del sottostante, misurata attraverso la deviazione standard sigma del logaritmo dei cambiamenti del prezzo 
