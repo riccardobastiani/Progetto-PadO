@@ -1,8 +1,4 @@
-# Progetto-PadO
-
-TODO
-[] codice per il salvataggio e i csv
-[] codice per il grafico
+## Progetto-PadO
 
 
 # **Descrizione**
