@@ -586,8 +586,7 @@ namespace Project2 {
 		dt = Double::Parse(t);
 		dcall = Double::Parse(call);
 		dput = Double::Parse(put);
-		dout = Double::Parse(out);
-
+		
 
 		outfile->WriteLine(out);
 		outfile->Close();
