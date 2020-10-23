@@ -20,12 +20,13 @@ In caso contrario, viene chiamata di tipo americano e può essere esercitata in 
 # Cos'è e a cosa serve la formula di Black-Scholes.
 
 La formula di Black-Scholes deriva dall'equazione omonima che è una equazione differenziale alle derivate parziali 
+[
 
 La formula di Black-Scholes fornisce una soluzione analitica per le opzioni call e put di tipo europeo e in particolare senza payout (dividendo, la parte che viene pagata da parte di un'azione), nella formula originaria.
 
 Inoltre i due economisti hanno dimostrato che le informazioni necessarie sono:
 1) il tasso di interesse r;
-2) la variabilità del sottostante, misurata attraverso la deviazione standard sigma del logaritmo dei cambiamenti del prezzo;
+2) la variabilità del sottostante, misurata attraverso la deviazione standard sigma del logaritmo dei cambiamenti del prezzo (distribuzione log-normale);
 3) data di scadenza in anni. 
 
 
@@ -36,11 +37,11 @@ La formula per il calcolo di una call è:
 	c = s * N(d1) - k * exp(-r * t)*N(d2);
 	
 Dove ricordiamo:
-s: sottostante
-k: prezzo di esercizio
-r: tasso di interesse composto
-t: tempo
-σ: Deviazione standard del sottostante
+s: sottostante.
+k: prezzo di esercizio.
+r: tasso di interesse composto.
+t: tempo.
+σ: Deviazione standard del sottostante.
 
 per la put invece:
 
