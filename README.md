@@ -19,10 +19,13 @@ In caso contrario, viene chiamata di tipo americano e può essere esercitata in 
 
 # Cos'è e a cosa serve la formula di Black-Scholes.
 
-La formula di Black-Scholes deriva dall'equazione omonima che è una equazione differenziale alle derivate parziali 
-[
+La formula di Black-Scholes deriva dall'equazione omonima che è una equazione differenziale alle derivate parziali. 
+![BSF](https://github.com/riccardobastiani/Progetto-PadO/blob/master/BSF.PNG)
 
-La formula di Black-Scholes fornisce una soluzione analitica per le opzioni call e put di tipo europeo e in particolare senza payout (dividendo, la parte che viene pagata da parte di un'azione), nella formula originaria.
+dove:
+V: prezzo dell'opzione in funzione del prezzo delle azioni S.
+
+La formula di Black-Scholes fornisce una soluzione analitica all'equazione sopra citata e un metodo di calcolo per le opzioni call e put di tipo europeo, in particolare senza payout (dividendo, la parte che viene pagata da parte di un'azione), nella formula originaria.
 
 Inoltre i due economisti hanno dimostrato che le informazioni necessarie sono:
 1) il tasso di interesse r;
@@ -53,7 +56,7 @@ per la put invece:
 
 # Obiettivo del progetto date le specifiche
 
-L'obiettivo del progetto è di sfruttare la struttura ad oggetti del c++ per il calcolo delle opzioni call e put partendo da una classe OptionBase
+L'obiettivo del progetto è di sfruttare la struttura ad oggetti del c++ per il calcolo delle opzioni call e put partendo da una classe OptionBase.
 
 # Miglioramenti
 
@@ -61,29 +64,22 @@ L'obiettivo del progetto è di sfruttare la struttura ad oggetti del c++ per il 
 
 Il primo miglioramento naturale è stato quello di utilizzare la formula di Black-Scholes, non solamente per il calcolo delle European Base Option ma anche di altre comuni tipologie.
 
-1) European option with continous payout from an underlying.
-	In questo caso, poiché la formula originaria non comprende il calcolo dei dividendi, esso è stato la prima espansione della formula. Normalmente, oltre alle stock option comuni, bisogna tenere in considerazione il fatto che il sottostante può avere dei dividendi multipli durante il tempo di 
+**1) European option with continous payout from an underlying.**
+In questo caso, poiché la formula originaria non comprende il calcolo dei dividendi, esso è stato la prima estensione della formula. Normalmente, oltre alle stock option comuni, bisogna tenere in considerazione il fatto che il sottostante può avere dei dividendi multipli durante il tempo di possesso dell'azione. 
+
+La possibilità più semplice è quella di dividendi continui.
 	
-	For options on other financial instruments than stocks, we have to allow for the fact that the underlying
-may have payouts during the life of the option. For example, in working with commodity options, there
-is often some storage costs if one wanted to hedge the option by buying the underlying.
-The simplest case is when the payouts are done continuously. To value an European option, a simple
-adjustment to the Black Scholes formula is all that is needed. Let q be the continuous payout of the
-underlying commodity.
 
-
-
-
-		double OptionContPay::getQ() const { return q; } 
+		double OptionContPay::getQ() const {return q;} 
 		void OptionContPay::setCall() {
 		double d1 = (log(getS() / getK()) + (getR() - getQ() + 0.5*pow(getSigma(), 2))*getTime()) / 	(getSigma()*sqrt(getTime()));`
 		double d2 = d1 - (getSigma()*sqrt(getTime()));
 		c = getS() * exp(-getQ()*getTime())* N(d1) - getK() * exp(-getR()*getTime()) * N(d2);
 
-la differenza rispetto alla formula principale è data dal return del rendimento del sottostante (yield on underlying) 
+la differenza rispetto alla formula principale è data dal return del rendimento del sottostante (yield on underlying, denominato con "q") 
 	
-2) European option on futures 
-	la questione dei futures invece si deve alla formula di Black che deriva dalla formula di Black-Scholes
+**2) European option on futures** 
+La seconda estensione più comune della formula è quella che comprende i futures, ovvero contratti in cui ci si impegna a comprare a una determinata data e a un predeterminato prezzo. In particolare ci si sposta dalla formula classica e si viene ad utilizzare la formula di Black. 
 	
 		void OptionFutures::setCall() { //Set Call Option Price
 		double d1 = (log(getS() / getK()) + 0.5 * pow(getSigma(), 2) * getTime()) / (getSigma() * sqrt(getTime()));`
@@ -91,10 +87,11 @@ la differenza rispetto alla formula principale è data dal return del rendimento
 		c = exp(-getR()*getTime())*(getS() * N(d1) - getK() * N(d2));
 	
 	
-la differenza è che il normale sottostante è invece il prezzo di un futures/forward. (Un forward è un future su un mercato non regolamentato) 
+Il normale sottostante, in questo caso, è il prezzo di un futures/forward. (Un forward è un future su un mercato non regolamentato). 
 
 
-3) European option with foreign currency
+**3) European option with foreign currency**
+Una terza modifica alla formula è data quando un sottostante è data da un tasso di cambio di una valuta. 
 
 		double OptionForCurr::getRF() const { return r_f; } dove **r_f è il foreign interest rate**
 
