@@ -106,11 +106,13 @@ Una terza modifica alla formula è data quando un sottostante è data da un tass
 
 **Apparato grafico e GUI**
 
-La parte grafica, creata utilizzando le Windows Form ha portato un miglioramento per l'esperienza dell'utente rispetto a quello che poteva essere l'utilizzo da terminale. 
+La parte grafica, creata utilizzando le Windows Form, ha portato un miglioramento per l'esperienza dell'utente rispetto a quello che poteva essere l'utilizzo da terminale.
+Creando una semplice interfaccia grafica 
 
 **Salvataggio dei dati**
 
-Il salvataggio dei dati in un file di tipo .csv per quanto riguarda i risultati ottenuti è risultato essere una miglioria efficace. 
+Parlando dell'ambito finanziario i file di tipo excel/.csv sono quelli più importanti e utilizzati, quindi l'idea di creare un salvataggio dei valori calcolati in un file di tipo .csv è sembrata la scelta più efficente. 
+ 
 Qui di seguito un esempio di codice nel calcolo delle call(o put) europee
 
 	private: System::Void save_data2_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -130,6 +132,8 @@ Qui di seguito un esempio di codice nel calcolo delle call(o put) europee
 		String ^out = s + ";" + k + ";" + r + ";" + sigma + ";" + t + ";" + call + ";" + put;
 
 **Grafico**
+
+Il grafico per le opzioni di tipo europeo può aiutare l'utente a visualizzare variazioni di guadagno rispetto ai dati immessi e dunque a valutare i prezzi delle call e delle put in modo più semplice e più efficace rispetto solamente ai valori numerici. 
 
 ![](https://github.com/riccardobastiani/Progetto-PadO/blob/master/Graph1.png)
 
