@@ -19,7 +19,9 @@ In caso contrario, viene chiamata di tipo americano e può essere esercitata in 
 
 # Cos'è e a cosa serve la formula di Black-Scholes.
 
-La formula di Black-Scholes fornisce una soluzione analitica per le opzioni call e put di tipo europeo e in particolare senza payout (dividendo, la parte che viene pagata da parte di un'azione), per quanto concerne la formula orignale. 
+La formula di Black-Scholes deriva dall'equazione omonima che è una equazione differenziale alle derivate parziali 
+
+La formula di Black-Scholes fornisce una soluzione analitica per le opzioni call e put di tipo europeo e in particolare senza payout (dividendo, la parte che viene pagata da parte di un'azione), nella formula originaria.
 
 Inoltre i due economisti hanno dimostrato che le informazioni necessarie sono:
 1) il tasso di interesse r;
@@ -50,15 +52,25 @@ per la put invece:
 
 # Obiettivo del progetto date le specifiche
 
-L'obiettivo del progetto è di sfruttare la struttura ad oggetti del c++ per il calcolo delle opzioni call e put. 
+L'obiettivo del progetto è di sfruttare la struttura ad oggetti del c++ per il calcolo delle opzioni call e put partendo da una classe OptionBase
 
 # Miglioramenti
 
 **Calcolo di diverse opzioni**
 
-Il primo miglioramento è stato quello di utilizzare la formula di Black-Scholes, non solamente per il calcolo delle European Base Option ma anche di altre comuni tipologie.
+Il primo miglioramento naturale è stato quello di utilizzare la formula di Black-Scholes, non solamente per il calcolo delle European Base Option ma anche di altre comuni tipologie.
 
-1) European option with continous payout from an underlying
+1) European option with continous payout from an underlying.
+	In questo caso, poiché la formula originaria non comprende il calcolo dei dividendi, esso è stato la prima espansione della formula. Normalmente, oltre alle stock option comuni, bisogna tenere in considerazione il fatto che il sottostante può avere dei dividendi multipli durante il tempo di 
+	
+	For options on other financial instruments than stocks, we have to allow for the fact that the underlying
+may have payouts during the life of the option. For example, in working with commodity options, there
+is often some storage costs if one wanted to hedge the option by buying the underlying.
+The simplest case is when the payouts are done continuously. To value an European option, a simple
+adjustment to the Black Scholes formula is all that is needed. Let q be the continuous payout of the
+underlying commodity.
+
+
 
 
 		double OptionContPay::getQ() const { return q; } 
