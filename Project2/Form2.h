@@ -416,26 +416,21 @@ namespace Project2 {
 			this->chart1->DataSource = this->chart1->Images;
 			legend1->Name = L"Legend1";
 			this->chart1->Legends->Add(legend1);
-			this->chart1->Location = System::Drawing::Point(430, 26);
+			this->chart1->Location = System::Drawing::Point(436, 13);
 			this->chart1->Margin = System::Windows::Forms::Padding(4);
 			this->chart1->Name = L"chart1";
 			series1->ChartArea = L"ChartArea1";
 			series1->IsXValueIndexed = true;
 			series1->Legend = L"Legend1";
 			series1->Name = L"Call Price";
-			series1->XValueType = System::Windows::Forms::DataVisualization::Charting::ChartValueType::Double;
 			series1->YValuesPerPoint = 2;
-			series1->YValueType = System::Windows::Forms::DataVisualization::Charting::ChartValueType::Double;
 			series2->ChartArea = L"ChartArea1";
 			series2->Legend = L"Legend1";
 			series2->Name = L"Put Price";
-			series2->XValueType = System::Windows::Forms::DataVisualization::Charting::ChartValueType::Double;
-			series2->YValueType = System::Windows::Forms::DataVisualization::Charting::ChartValueType::Double;
 			series3->ChartArea = L"ChartArea1";
 			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
 			series3->Legend = L"Legend1";
 			series3->Name = L"sigma";
-			series3->YValueType = System::Windows::Forms::DataVisualization::Charting::ChartValueType::Double;
 			this->chart1->Series->Add(series1);
 			this->chart1->Series->Add(series2);
 			this->chart1->Series->Add(series3);
@@ -457,6 +452,7 @@ namespace Project2 {
 			this->button2_Click->Text = L"Take file";
 			this->button2_Click->UseVisualStyleBackColor = true;
 			this->button2_Click->UseWaitCursor = true;
+			this->button2_Click->Click += gcnew System::EventHandler(this, &Form2::button2_Click_Click);
 			// 
 			// Form2
 			// 
@@ -510,19 +506,19 @@ namespace Project2 {
 		// Try & Catch indicates error if there are invalid input data, as negative numbers or letters 
 		try
 		{
-			if (System::Convert::ToDouble(s_textbox2->Text) <= 0)
+			if (System::Convert::ToDecimal(s_textbox2->Text) <= 0)
 			{
 				throw "Spot Price must be a positive number!";
 			}
-			if (System::Convert::ToDouble(k_textbox2->Text) <= 0)
+			if (System::Convert::ToDecimal(k_textbox2->Text) <= 0)
 			{
 				throw "Exercise Price must be a positive number!";
 			}
-			if (System::Convert::ToDouble(r_textbox2->Text) <= 0)
+			if (System::Convert::ToDecimal(r_textbox2->Text) <= 0)
 			{
 				throw "Interest Rate must be a positive number!";
 			}
-			if (System::Convert::ToDouble(sigma_textbox2->Text) <= 0)
+			if (System::Convert::ToDecimal(sigma_textbox2->Text) <= 0)
 			{
 				throw "Sigma must be a positive number!";
 			}
@@ -530,14 +526,14 @@ namespace Project2 {
 			{
 				throw "Time to Maturity must be a positive number!";
 			}
-			double s = System::Convert::ToDouble(s_textbox2->Text);
-			double k = System::Convert::ToDouble(k_textbox2->Text);
-			double r = System::Convert::ToDouble(r_textbox2->Text);
-			double sigma = System::Convert::ToDouble(sigma_textbox2->Text);
-			double t = System::Convert::ToDouble(t_textbox2->Text);
+			auto s = System::Convert::ToDouble(s_textbox2->Text);
+			auto k = System::Convert::ToDouble(k_textbox2->Text);
+			auto r = System::Convert::ToDouble(r_textbox2->Text);
+			auto sigma = System::Convert::ToDouble(sigma_textbox2->Text);
+			auto t = System::Convert::ToDouble(t_textbox2->Text);
 			OptionBase option(s, k, r, sigma, t);
-			call_textbox2->Text = (option.getCall()).ToString("0.0000");
-			put_textbox2->Text = (option.getPut()).ToString("0.0000");
+			call_textbox2->Text = (option.getCall()).ToString("0.00");
+			put_textbox2->Text = (option.getPut()).ToString("0.00");
 		}
 		catch (const char *e)
 		{
@@ -586,7 +582,7 @@ namespace Project2 {
 		dt = Double::Parse(t);
 		dcall = Double::Parse(call);
 		dput = Double::Parse(put);
-		dout = Double::Parse(out);
+		//dout = Double::Parse(out);
 
 
 		outfile->WriteLine(out);
@@ -609,24 +605,29 @@ namespace Project2 {
 	};
 			 /*BUTTON2_CLICK*/
 
-	private: System::Void Button2_Click(System::Object^  sender, System::EventArgs^  e) {
-		Stream^ streamToSave;
-		OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
+	
+	private: System::Void chart1_Click(System::Object^  sender, System::EventArgs^  e) {
+		
+	}
+private: System::Void button2_Click_Click(System::Object^ sender, System::EventArgs^ e) {
+	Stream^ streamToSave;
+	OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
 
-		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	{
+		if ((streamToSave = openFileDialog1->OpenFile()) != nullptr);
 		{
-			if ((streamToSave = openFileDialog1->OpenFile()) != nullptr);
-			{
-				String^ Strfilename = openFileDialog1->InitialDirectory + openFileDialog1->FileName;
-				String^ Readfile = File::ReadAllText(Strfilename);
-				MessageBox::Show(Readfile);
-				streamToSave->Close();
-			};
+			String^ Strfilename = openFileDialog1->InitialDirectory + openFileDialog1->FileName;
+			String^ Readfile = File::ReadAllText(Strfilename);
+			MessageBox::Show(Readfile);
+			streamToSave->Close();
+
 		};
 	};
-	private: System::Void chart1_Click(System::Object^  sender, System::EventArgs^  e) {
-	}
+};
+};
 };
 
-};
+
+
 
