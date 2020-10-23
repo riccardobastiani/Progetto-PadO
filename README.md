@@ -20,6 +20,7 @@ In caso contrario, viene chiamata di tipo americano e può essere esercitata in 
 # Cos'è e a cosa serve la formula di Black-Scholes.
 
 La formula di Black-Scholes deriva dall'equazione omonima che è una equazione differenziale alle derivate parziali. 
+
 ![BSF](https://github.com/riccardobastiani/Progetto-PadO/blob/master/BSF.PNG)
 
 dove:
@@ -40,11 +41,11 @@ La formula per il calcolo di una call è:
 	c = s * N(d1) - k * exp(-r * t)*N(d2);
 	
 Dove ricordiamo:
-s: sottostante.
-k: prezzo di esercizio.
-r: tasso di interesse composto.
-t: tempo.
-σ: Deviazione standard del sottostante.
+- s: sottostante.
+- k: prezzo di esercizio.
+- r: tasso di interesse composto.
+- t: tempo.
+- σ: Deviazione standard del sottostante.
 
 per la put invece:
 
@@ -65,6 +66,7 @@ L'obiettivo del progetto è di sfruttare la struttura ad oggetti del c++ per il 
 Il primo miglioramento naturale è stato quello di utilizzare la formula di Black-Scholes, non solamente per il calcolo delle European Base Option ma anche di altre comuni tipologie.
 
 **1) European option with continous payout from an underlying.**
+
 In questo caso, poiché la formula originaria non comprende il calcolo dei dividendi, esso è stato la prima estensione della formula. Normalmente, oltre alle stock option comuni, bisogna tenere in considerazione il fatto che il sottostante può avere dei dividendi multipli durante il tempo di possesso dell'azione. 
 
 La possibilità più semplice è quella di dividendi continui.
@@ -79,6 +81,7 @@ La possibilità più semplice è quella di dividendi continui.
 la differenza rispetto alla formula principale è data dal return del rendimento del sottostante (yield on underlying, denominato con "q") 
 	
 **2) European option on futures** 
+
 La seconda estensione più comune della formula è quella che comprende i futures, ovvero contratti in cui ci si impegna a comprare a una determinata data e a un predeterminato prezzo. In particolare ci si sposta dalla formula classica e si viene ad utilizzare la formula di Black. 
 	
 		void OptionFutures::setCall() { //Set Call Option Price
@@ -91,6 +94,7 @@ Il normale sottostante, in questo caso, è il prezzo di un futures/forward. (Un 
 
 
 **3) European option with foreign currency**
+
 Una terza modifica alla formula è data quando un sottostante è data da un tasso di cambio di una valuta. 
 
 		double OptionForCurr::getRF() const { return r_f; } dove **r_f è il foreign interest rate**
