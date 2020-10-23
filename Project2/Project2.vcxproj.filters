@@ -60,10 +60,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram11.cd" />
-    <None Include="ClassDiagram12.cd" />
-    <None Include="ClassDiagram13.cd" />
-    <None Include="ClassDiagram14.cd" />
+    <None Include="ClassDiagram15.cd" />
   </ItemGroup>
 </Project>
