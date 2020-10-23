@@ -148,7 +148,7 @@ Abbiamo tre possibili casi d'uso che un utente può avere:
 
 # Diagrammi UML
 
-![diagramma UML](https://github.com/riccardobastiani/Progetto-PadO/blob/master/Image.png)
+![diagramma UML](https://github.com/riccardobastiani/Progetto-PadO/blob/master/ClassDiagram15.png)
 
 ![Option Base](https://github.com/riccardobastiani/Progetto-PadO/blob/master/OptionBase.png)
 
